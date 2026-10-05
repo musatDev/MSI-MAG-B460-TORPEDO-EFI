@@ -33,7 +33,8 @@ USB mapping was the most time-consuming part of this setup.
 - `XHCI-unsupported.kext` from the [daliansky/OS-X-USB-Inject-All fork](https://github.com/daliansky/OS-X-USB-Inject-All) was used.
 - After these changes, USB 3 ports started working at **5 Gb/s**.
 - Once all physical ports had been discovered, the final USB port map kext was created using Hackintool.
-- Temporary mapping and injection kexts were removed for final use.
+- Temporary mapping and injection kexts, except `XHCI-unsupported.kext`, were removed for final use.
+- For the final EFI on this motherboard, keep `XHCI-unsupported.kext` enabled, remove `USBInjectAll.kext` and its entry from `Kernel > Add`, use the final `USBPorts.kext` port map, and set `Kernel > Quirks > XhciPortLimit` to `false`.
 
 ## Sources
 
